@@ -26,3 +26,26 @@ module.exports = {
         options: {}
     }}
 ```
+### 使用加载器的三种方式
+1. 配置文件
+```
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'}
+                ]
+            }
+        ]
+    }
+```
+2. require
+```
+    require('style-loader!css-loader?modules!./styles.css');
+```
+3. CLI
+```
+    webpack --module-bind jade --module-bind 'css-style!css'
+```
